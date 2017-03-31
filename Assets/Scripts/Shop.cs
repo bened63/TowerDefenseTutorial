@@ -2,6 +2,9 @@
 
 public class Shop : MonoBehaviour
 {
+    public TurretBluePrint standardTurret;
+    public TurretBluePrint missleLauncher;
+
     BuildManager buildManager;
 
     private void Start()
@@ -9,15 +12,15 @@ public class Shop : MonoBehaviour
         buildManager = BuildManager.instance;
     }
 
-    public void PurchaseStandardTurret()
+    public void SelectStandardTurret()
     {
         Debug.Log("Standard Turret Selected!");
-        buildManager.SetTurretToBuild(buildManager.standardTurretPrefab);
+        buildManager.SelectTurretToBuild(standardTurret);
     }
 
-    public void PurchaseMissleLauncher()
+    public void SelectMissleLauncher()
     {
         Debug.Log("Missle Lancher Selected!");
-        buildManager.SetTurretToBuild(buildManager.missleLauncherPrefab);
+        buildManager.SelectTurretToBuild(missleLauncher);
     }
 }
