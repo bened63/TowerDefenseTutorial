@@ -17,6 +17,8 @@ public class BuildManager : MonoBehaviour
     public GameObject standardTurretPrefab;
     public GameObject missleLauncherPrefab;
 
+    public GameObject buildEffect;
+
     private TurretBluePrint turretToBuild;
     
     public bool CanBuild {  get { return turretToBuild != null; } }
@@ -34,6 +36,9 @@ public class BuildManager : MonoBehaviour
 
         GameObject turret = (GameObject) Instantiate(turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
         node.turret = turret;
+
+        GameObject effect = Instantiate(buildEffect, node.GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
     }
 
     public void SelectTurretToBuild(TurretBluePrint turret)
